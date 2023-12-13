@@ -1,0 +1,167 @@
+<div class="d-flex flex-row mb-3 justify-content-center p-3">
+
+
+    <div class="p-2  bg-black text-white m-1 ck" (click)="bkPageview()"> &#8249;</div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="pageview(1)"> 1</div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="pageview(2)"> 2</div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="pageview(3)"> 3</div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="pageview(4)">4</div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="pageview(5)">5 </div>
+    <div class="p-2  bg-black text-white m-1 ck" (click)="addPageview()">&#8250; </div>
+
+
+
+</div>
+
+<div class="p-3 mb-2 bg-black text-white w-50 mx-2">
+ <ul class="nav  ">
+ 
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page"  >  </a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page"   (click)="call('all')"> All </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="call('movie')" >Movies</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  (click)="call('person')">People</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="call('tv')"  >TV</a>
+      </li>
+    
+  </ul>   
+</div>
+
+<div *ngIf="type == 'all'">
+ 
+    <div class="row p-5">
+        <div class="col-md-4">
+            <div class="my-50 w-70">
+                <h2>Trending Movies<br> To Watch Right Now</h2>
+                <p class="second-color">
+                    Trenging movies To Wetch It Now Free
+                </p>
+            </div>
+        </div>
+    
+    
+    
+    
+        <div  *ngFor="let movie of movieTrending" class="col-md-2">
+    
+            <a [routerLink]="['/movieDet' , movie.id , type ]">
+                <div class="movie position-relative">
+                    <img [src]="img+movie.poster_path" alt="" class="w-100">
+                    <h4>{{movie.title}} </h4>
+                    <div class="vote position-absolute end-0 top-0 bg-danger text-white rounded-start p-2"> {{
+                        movie.vote_average }}</div>
+                </div>
+    
+            </a>
+    
+    
+        </div>
+    </div>
+    
+</div>
+
+
+
+<div *ngIf="type == 'movie'">
+ 
+    <div class="row p-5">
+        <div class="col-md-4">
+            <div class="my-50 w-70">
+                <h2>Trending Movies<br> To Watch Right Now</h2>
+                <p class="second-color">
+                    Trenging movies To Wetch It Now Free
+                </p>
+            </div>
+        </div>
+    
+    
+    
+    
+        <div  *ngFor="let movie of movieTrending" class="col-md-2">
+    
+            <a [routerLink]="['/movieDet' , movie.id , type ]">
+                <div class="movie position-relative">
+                    <img [src]="img+movie.poster_path" alt="" class="w-100">
+                    <h4>{{movie.title}} </h4>
+                    <div class="vote position-absolute end-0 top-0 bg-danger text-white rounded-start p-2"> {{
+                        movie.vote_average }}</div>
+                </div>
+    
+            </a>
+    
+    
+        </div>
+    </div>
+    
+</div>
+
+
+<div *ngIf="type == 'person'">
+ 
+    <div class="row p-5">
+        <div class="col-md-4">
+            <div class="my-50 w-70">
+                <h2>Trending Movies<br> To Watch Right Now</h2>
+                <p class="second-color">
+                    Trenging movies To Wetch It Now Free
+                </p>
+            </div>
+        </div>
+    
+        <div  *ngFor="let movie of movieTrending" class="col-md-2">
+    
+            <a [routerLink]="['/movieDet' , movie.id , type ]">
+                <div class="movie position-relative">
+                    <img [src]="img+movie.profile_path" alt="" class="w-100">
+                    <h4>{{movie.name}} </h4>
+                    <div class="vote position-absolute end-0 top-0 bg-danger text-white rounded-start p-2"> {{
+                        movie.popularity }}</div>
+                </div>
+    
+            </a>
+    
+    
+        </div>
+    </div>
+    
+</div>
+
+
+<div *ngIf="type == 'tv'">
+ 
+    <div class="row p-5">
+        <div class="col-md-4">
+            <div class="my-50 w-70">
+                <h2>Trending Movies<br> To Watch Right Now</h2>
+                <p class="second-color">
+                    Trenging movies To Wetch It Now Free
+                </p>
+            </div>
+        </div>
+    
+        <div  *ngFor="let movie of movieTrending" class="col-md-2">
+    
+            <a [routerLink]="['/movieDet' , movie.id , type ]">
+                <div class="movie position-relative">
+                    <img [src]="img+movie.poster_path" alt="" class="w-100">
+                    <h4>{{movie.name}} </h4>
+                    <div class="vote position-absolute end-0 top-0 bg-danger text-white rounded-start p-2"> {{
+                        movie.vote_average }}</div>
+                </div>
+    
+            </a>
+    
+    
+        </div>
+    </div>
+    
+</div>
+
